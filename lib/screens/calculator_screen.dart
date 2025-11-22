@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../widgets/calculator_display.dart';
 
 class CalculatorScreen extends StatelessWidget {
   const CalculatorScreen({super.key});
@@ -19,20 +20,11 @@ class CalculatorScreen extends StatelessWidget {
       body: SafeArea(
         child: Column(
           children: [
-            Expanded(
+            const Expanded(
               flex: 2,
-              child: Container(
-                width: double.infinity,
-                padding: const EdgeInsets.all(24),
-                alignment: Alignment.bottomRight,
-                child: const Text(
-                  '0',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 48,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
+              child: CalculatorDisplay(
+                value: '0',
+                operation: '',
               ),
             ),
             Expanded(

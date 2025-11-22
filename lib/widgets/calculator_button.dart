@@ -19,7 +19,7 @@ class CalculatorButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final baseColor = Colors.grey.shade800;
-    final primaryColor = Colors.orange.shade600;
+    final primaryColor = Colors.lightGreen.shade600;
     final accentColor = Colors.grey.shade600;
 
     Color backgroundColor = baseColor;

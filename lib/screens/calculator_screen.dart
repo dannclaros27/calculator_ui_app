@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
 import '../widgets/calculator_display.dart';
+import '../widgets/calculator_keyboard.dart';
 
 class CalculatorScreen extends StatelessWidget {
   const CalculatorScreen({super.key});
+
+  void _onButtonPressed(String value) {
+    // Por ahora solo imprimimos. Luego podrías hacer la lógica.
+    debugPrint('Button pressed: $value');
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -37,11 +43,8 @@ class CalculatorScreen extends StatelessWidget {
                     top: Radius.circular(24),
                   ),
                 ),
-                child: const Center(
-                  child: Text(
-                    'Keyboard placeholder',
-                    style: TextStyle(color: Colors.white54),
-                  ),
+                child: CalculatorKeyboard(
+                  onButtonPressed: _onButtonPressed,
                 ),
               ),
             ),

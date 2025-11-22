@@ -2,12 +2,32 @@ import 'package:flutter/material.dart';
 import '../widgets/calculator_display.dart';
 import '../widgets/calculator_keyboard.dart';
 
-class CalculatorScreen extends StatelessWidget {
+class CalculatorScreen extends StatefulWidget {
   const CalculatorScreen({super.key});
 
+  @override
+  State<CalculatorScreen> createState() => _CalculatorScreenState();
+}
+
+class _CalculatorScreenState extends State<CalculatorScreen> {
+  String _displayValue = '0';
+  String _operation = '';
+
   void _onButtonPressed(String value) {
-    // Por ahora solo imprimimos. Luego podrías hacer la lógica.
-    debugPrint('Button pressed: $value');
+    setState(() {
+      // UI básica: si es número, lo concatenamos
+      final isDigit = RegExp(r'^[0-9]$').hasMatch(value);
+      if (isDigit) {
+        if (_displayValue == '0') {
+          _displayValue = value;
+        } else {
+          _displayValue += value;
+        }
+      } else {
+        // Por ahora solo mostramos la operación presionada
+        _operation = value;
+      }
+    });
   }
 
   @override
@@ -26,11 +46,11 @@ class CalculatorScreen extends StatelessWidget {
       body: SafeArea(
         child: Column(
           children: [
-            const Expanded(
+            Expanded(
               flex: 2,
               child: CalculatorDisplay(
-                value: '0',
-                operation: '',
+                value: _displayValue,
+                operation: _operation,
               ),
             ),
             Expanded(

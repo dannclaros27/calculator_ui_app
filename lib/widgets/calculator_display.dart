@@ -12,11 +12,22 @@ class CalculatorDisplay extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      padding: const EdgeInsets.all(24),
-      alignment: Alignment.bottomRight,
-      child: Column(
+ return Container(
+  width: double.infinity,
+  padding: const EdgeInsets.all(24),
+  margin: const EdgeInsets.only(bottom: 12),
+  decoration: BoxDecoration(
+    color: Colors.grey.shade900,
+    boxShadow: [
+      BoxShadow(
+        color: Colors.black.withOpacity(0.4),
+        offset: const Offset(0, 4),
+        blurRadius: 8,
+      ),
+    ],
+  ),
+  alignment: Alignment.bottomRight,
+  child: Column(
         crossAxisAlignment: CrossAxisAlignment.end,
         mainAxisAlignment: MainAxisAlignment.end,
         children: [

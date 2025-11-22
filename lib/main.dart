@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'screens/calculator_screen.dart';
 
 void main() {
   runApp(const CalculatorApp());
@@ -16,7 +17,7 @@ class CalculatorApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const Placeholder(), // Luego cambiamos esto
+      home: const CalculatorScreen(),
     );
   }
 }
